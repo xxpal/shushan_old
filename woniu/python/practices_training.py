@@ -65,12 +65,36 @@ def court_char(str_input: str = '') -> None:
 # ======================================================================
 def exchange_cash(cash: int = 100, coins: int = 50) -> None:
     combs = []   # 不同兑换方式的组合保存在集合里
+    loop1_count = 0
+    loop2_count = 0
+    loop3_count = 0
 
-    for coin5 in range(cash//5 + 1, -1, -1):
-        for coin2 in range(cash//2, -1, -1):
-            for coin1 in range(cash, -1, -1):
-                if (coin1 + coin2 + coin5 == coins) and (coin1 + 2 * coin2 + 5 * coin5 == cash):
-                    combs.append({'1分': coin1, '2分': coin2, '5分': coin5})   # 将合适的兑换组合以字典的形式保存
+    # 方法1：三层for循环，第一层判断5分硬币个数，第二层判断2分硬币个数，第三层判断1分硬币个数，计数器用顺序
+    # 性能分析：循环1 ==> 21次；循环2 ==> 1071次；循环3 ==> 108171次
+    # for coin5 in range(0, cash//5 + 1):
+    #     loop1_count += 1
+    #     for coin2 in range(0, cash//2 + 1):
+    #         loop2_count += 1
+    #         for coin1 in range(0, cash + 1):
+    #             loop3_count += 1
+    #             if (coin1 + coin2 + coin5 == coins) and (coin1 + 2 * coin2 + 5 * coin5 == cash):
+    #                 combs.append({'1分': coin1, '2分': coin2, '5分': coin5})   # 将合适的兑换组合以字典的形式保存
+
+    # 方法2：三层for循环，第一层判断5分硬币个数，第二层判断1分硬币个数，第三层判断2分硬币个数，计数器用顺序
+    # 性能分析：循环1 ==> 21次；循环2 ==> 2121次；循环3 ==> 108171次
+    # for coin5 in range(0, cash//5 + 1):
+    #     loop1_count += 1
+    #     for coin1 in range(0, cash + 1):
+    #         loop2_count += 1
+    #         for coin2 in range(0, cash//2 + 1):
+    #             loop3_count += 1
+    #             if (coin1 + coin2 + coin5 == coins) and (coin1 + 2 * coin2 + 5 * coin5 == cash):
+    #                 combs.append({'1分': coin1, '2分': coin2, '5分': coin5})   # 将合适的兑换组合以字典的形式保存
+
+
+    print('first for loop:', loop1_count)
+    print('second for loop:', loop2_count)
+    print('third for loop:', loop3_count)
 
     print('您一共有{}元现金，如需兑换{}个硬币，共有{}种兑换方案。具体如下：'.format(cash, coins, len(combs)))
     for item in combs:
@@ -79,7 +103,7 @@ def exchange_cash(cash: int = 100, coins: int = 50) -> None:
     return
 
 
-# exchange_cash()
+exchange_cash()
 
 
 # ======================================================================
@@ -203,7 +227,7 @@ def is_numeric_str(input_str: str) -> None:
     int('123')
 
 
-is_numeric_str(input('请输入一串字符串：'))
+# is_numeric_str(input('请输入一串字符串：'))
 
 
 # ======================================================================
