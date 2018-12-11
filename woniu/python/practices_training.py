@@ -202,6 +202,7 @@ def is_numeric_str(input_str: str) -> None:
         print('该字符串可以转换成为一个有效的数字！')
     int('123')
 
+
 is_numeric_str(input('请输入一串字符串：'))
 
 
