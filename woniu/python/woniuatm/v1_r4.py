@@ -33,12 +33,19 @@ import math
 #          ['jack', 'ma88', '19977778888']]
 
 # 定义一个包含字典元素的列表，用于保存所有注册用户信息，其中每个用户的信息以字典形式保存
-users = [{'name': 'steve', 'password': '123', 'tel': '13966668888', 'balance': 9000.00, 'history': ''},
-         {'name': 'bill', 'password': 'abc', 'tel': '18899996666', 'balance': 7500.00, 'history': ''},
-         {'name': 'jack', 'password': 'ma88', 'tel': '19977778888', 'balance': 5800.00, 'history': ''}]
+# users = [{'name': 'steve', 'password': '123', 'tel': '13966668888', 'balance': 9000.00, 'history': ''},
+#          {'name': 'bill', 'password': 'abc', 'tel': '18899996666', 'balance': 7500.00, 'history': ''},
+#          {'name': 'jack', 'password': 'ma88', 'tel': '19977778888', 'balance': 5800.00, 'history': ''}]
 
-# 定义一个全局变量，用于保存当前登录用户的在users列表中的index值，默认未登录的情况下为-1
+# path1 = os.path.abspath('.')      # 表示当前所处的文件夹的绝对路径
+# path2 = os.path.abspath('..')     # 表示当前所处的文件夹上一级文件夹的绝对路径
+# 我们常设置一个path1的全局变量来表示当前的绝对路径，再加上相对路径来打开需要打开的文件
+# 这么做是为了在不同的平台上不冲突，因为不同平台在相对路径上的表示上存在区别。
+
+# 当前登录用户在users.txt文件中的行数
 current_user_id = -1
+user_file_path = os.path.abspath('..') + '\\data\\users.txt'
+users = []
 
 
 # 业务类函数：注册
@@ -232,9 +239,15 @@ def check_user(name: str) -> int:
     #         return i
 
     # 法二：通过index()函数，返回其所在列表中的index
-    for user in users:
-        if user['name'] == name:
-            return users.index(user)
+    # for user in users:
+    #     if user['name'] == name:
+    #         return users.index(user)
+
+    # 法三：行读取用户文件中的用户信息存放至列表中，找到name在列表中的index
+    users = read_user_info(user_file_path)
+    for i in range(1, len(users)):
+        if users[i].split(',')[0] == name:
+            return i
 
     return -1
 
@@ -260,6 +273,21 @@ def check_number(input_str: str) -> bool:
             break
 
     return is_valid
+
+
+# 读取用户信息文件，并返回为一个列表对象
+def read_user_info(path: str) -> list:
+    user_file = open(path)          # 打开用户文件
+    users = user_file.readlines()   # 从文件读取用户信息并保存至列表中
+
+    return users
+
+
+# 往用户文件users.txt中追加一条用户信息
+def write_user_info(user_info: str) -> None:
+    user_file = open(user_file_path, mode='a+')
+    user_file.write(user_info)
+    user_file.close()
 
 
 # 流程控制函数：WoniuATM入口程序
