@@ -1,6 +1,6 @@
-import math
+# import math
 import random
-import re
+# import re
 
 
 # ======================================================================
@@ -65,11 +65,11 @@ def court_char(str_input: str = '') -> None:
 # ======================================================================
 def exchange_cash(cash: int = 100, coins: int = 50) -> None:
     combs = []   # 不同兑换方式的组合保存在集合里
-    loop1_count = 0
-    loop2_count = 0
-    loop3_count = 0
+    loop1_count = 0     # 记录第一层for循环的次数
+    loop2_count = 0     # 记录第二层for循环的次数
+    # loop3_count = 0
 
-    # 方法1：三层for循环，第一层判断5分硬币个数，第二层判断2分硬币个数，第三层判断1分硬币个数，计数器用顺序
+    # 方法1：三层for循环，第一层判断5分硬币个数，第二层判断2分硬币个数，第三层判断1分硬币个数
     # 性能分析：循环1 ==> 21次；循环2 ==> 1071次；循环3 ==> 108171次
     # for coin5 in range(0, cash//5 + 1):
     #     loop1_count += 1
@@ -80,21 +80,41 @@ def exchange_cash(cash: int = 100, coins: int = 50) -> None:
     #             if (coin1 + coin2 + coin5 == coins) and (coin1 + 2 * coin2 + 5 * coin5 == cash):
     #                 combs.append({'1分': coin1, '2分': coin2, '5分': coin5})   # 将合适的兑换组合以字典的形式保存
 
-    # 方法2：三层for循环，第一层判断5分硬币个数，第二层判断1分硬币个数，第三层判断2分硬币个数，计数器用顺序
+    # 方法2：三层for循环，第一层判断5分硬币个数，第二层判断1分硬币个数，第三层判断2分硬币个数
     # 性能分析：循环1 ==> 21次；循环2 ==> 2121次；循环3 ==> 108171次
-    # for coin5 in range(0, cash//5 + 1):
+    # for coin5 in range(0, cash//5):
     #     loop1_count += 1
-    #     for coin1 in range(0, cash + 1):
+    #     for coin1 in range(0, cash):
     #         loop2_count += 1
     #         for coin2 in range(0, cash//2 + 1):
     #             loop3_count += 1
     #             if (coin1 + coin2 + coin5 == coins) and (coin1 + 2 * coin2 + 5 * coin5 == cash):
     #                 combs.append({'1分': coin1, '2分': coin2, '5分': coin5})   # 将合适的兑换组合以字典的形式保存
 
+    # 方法3：三层for循环，第一层判断5分硬币个数，第二层判断2分硬币个数，第三层判断1分硬币个数
+    # 性能分析：循环1 ==> 21次；循环2 ==> 2121次；循环3 ==> 108171次
+    # for coin5 in range(0, cash//5):   # 5分硬币b最多19个
+    #     loop1_count += 1
+    #     for coin1 in range(0, cash//2 + 1):   # 2分硬币最多50个
+    #         loop2_count += 1
+    #         for coin2 in range(0, cash):   # 1分硬币最多49个
+    #             loop3_count += 1
+    #             if (coin1 + coin2 + coin5 == coins) and (coin1 + 2 * coin2 + 5 * coin5 == cash):
+    #                 combs.append({'1分': coin1, '2分': coin2, '5分': coin5})   # 将合适的兑换组合以字典的形式保存
+
+    # 方法3：两层for循环，第一层判断5分硬币个数，第二层判断2分硬币个数
+    # 性能分析：循环1 ==> 21次；循环2 ==> 1071次；循环3 ==> 108171次
+    for coin5 in range(0, cash//5):
+        loop1_count += 1
+        for coin2 in range(0, cash//2 + 1):
+            loop2_count += 1
+            coin1 = coins - coin2 - coin5
+            if coin1 + 2 * coin2 + 5 * coin5 == cash:
+                combs.append({'1分': coin1, '2分': coin2, '5分': coin5})   # 将合适的兑换组合以字典的形式保存
 
     print('first for loop:', loop1_count)
     print('second for loop:', loop2_count)
-    print('third for loop:', loop3_count)
+    # print('third for loop:', loop3_count)
 
     print('您一共有{}元现金，如需兑换{}个硬币，共有{}种兑换方案。具体如下：'.format(cash, coins, len(combs)))
     for item in combs:
@@ -206,28 +226,59 @@ def guess_num() -> None:
 # 字符串判断：从键盘输入一个字符串，判断该字符串是否可以被转换为一个有效的数字。
 # 禁止使用Python自带方法完成
 # ======================================================================
-def is_numeric_str(input_str: str) -> None:
+def is_numeric_str(input_str: str) -> bool:
+    # 思路分析：
+    # 1、有效的字符只能是数字0~9、+、-和.
+    # 2、最多只能包含一个.、+、-
+    # 3、+、-只能出现在字符串首位
+    # 4、若字符串首位字符为0，则字符串中必须包含小数点
     is_numeric = False
-    digits = ('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.')
-    dot = 0
+    chars = ('.', '-', '+', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9')
+    init_char = input_str[0]
+    count_dot = 0
+    count_plus = 0
+    count_minus = 0
 
     print('您输入的字符串为：{}'.format(input_str))
 
-    for i in input_str:
-        if i not in digits or dot > 1:
-            print('该字符串不能转换成为一个有效数字')
+    for char in input_str:
+        # 若i为非0~9、.、-、+，则终止循环；反之，则进一步判断其它条件
+        if char not in chars:
             break
-        elif i is '.':
-            dot += 1
         else:
-            is_numeric = True
+            # 如果字符为'.'，则其计数+1
+            if char is '.':
+                count_dot += 1
+                continue
+            # 如果字符为'-'且不是字符串的第一个字符，则终止循环；否则其计数+1，循环继续
+            elif char is '-':
+                count_minus += 1
+                if input_str.index(char) == 0:
+                    continue
+                else:
+                    break
+            # 如果字符为'+'且不是字符串的第一个字符，则终止循环；否则其计数+1，循环继续
+            elif char is '+':
+                count_plus += 1
+                if input_str.index(char) == 0:
+                    continue
+                else:
+                    break
+            # 如果首字符为0且字符串中不包含.符号，则终止循环
+            elif char is '0' and '.' not in input_str:
+                break
+
+        is_numeric = True
 
     if is_numeric:
         print('该字符串可以转换成为一个有效的数字！')
-    int('123')
+    else:
+        print('该字符串不能转换成为一个有效数字')
+
+    return is_numeric
 
 
-# is_numeric_str(input('请输入一串字符串：'))
+is_numeric_str(input('请输入一串字符串：'))
 
 
 # ======================================================================
