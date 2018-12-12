@@ -35,7 +35,7 @@ def register() -> bool:
     :return: 注册成功则返回True，反之则返回False
     """
     name = input('>>> 请输入您的用户名：')
-    index = check(name)
+    index = check_user(name)
     status = False
 
     # 先判断用户名是否存在
@@ -58,7 +58,7 @@ def login() -> bool:
     :return: 登录成功则返回True，反之则返回False
     """
     name = input('>>> 请输入您的用户名：')
-    index = check(name)
+    index = check_user(name)
     status = False
 
     if index >= 0:
@@ -74,7 +74,7 @@ def login() -> bool:
     return status
 
 
-def check(name: str) -> int:
+def check_user(name: str) -> int:
     """
     检查用户名是否存在
     :param name: 用户名
