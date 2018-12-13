@@ -2,7 +2,7 @@
 # product: WoniuATM
 # version: 1.4
 # author: Leo
-# updated: 12/12/2018
+# updated: 12/13/2018
 #
 # 需求说明：
 # 1、利用列表实现一个用户的注册功能。                            ==> Done
@@ -19,7 +19,6 @@
 import os
 import time
 import random
-import math
 
 
 # 定义单独的列表，分别保存不同的用户属性
@@ -66,12 +65,18 @@ def register() -> bool:
         password = input('>>> 请设置您的账户密码：')
         tel = input('>>> 请输入您的电话号码：')
         balance = random.randint(1000, 9999)  # 生成一个随机数，模拟新注册的用户的初始的存款金额
+
         # 不同的属性值构成了用户记录，每个用户的信息以字典的形式保存
-        user = {}
-        user.update({'name': name, 'password': password, 'tel': tel,
-                     'balance': balance, 'history': ''})
+        # user = {}
+        # user.update({'name': name, 'password': password, 'tel': tel,
+        #              'balance': balance, 'history': ''})
         # 将所有的用户记录以列表形式保存，并返回状态值
-        users.append(user)
+        # users.append(user)
+
+        # 以','分隔用户属性，组合成用户信息字符串写入用户信息文件
+        sep = ','
+        user = name + sep + password + sep + tel + sep + str(balance) + sep + '交易历史：'
+        write_user_info('\n'+user, user_file_path)  # 新注册的用户新起一行，避免读写时数据是出错
         status = True
         print('>>> 注册成功！')
 
@@ -90,7 +95,12 @@ def login() -> bool:
 
     if index >= 0:
         password = input('>>> 请输入您的密码：')
-        if users[index]['password'] == password:
+        # 从用户文件读取所有用户信息保存到列表
+        global users
+        users = read_user_info(user_file_path)
+
+        # if users[index]['password'] == password:
+        if users[index].split(',')[1] == password:
             print('>>> 登录成功！')
             global current_user_id  # 要在函数中修改全局变量，则必须加global进行声明，若只读取不修改，直接读取即可
             current_user_id = index  # 将当前用户的index值赋值给全局变量current_user
@@ -106,22 +116,28 @@ def login() -> bool:
 # 业务类函数：查询
 def query(user_id: int) -> None:
     print('>>> 正在进行查询操作……')
-    print('>>> 尊敬的%s，您的账户余额为：%.2f元，电话号码为：%s。' %
-          (users[user_id]['name'],
-           users[user_id]['balance'],
-           users[user_id]['tel']))
+    # 从用户文件读取所有用户信息保存到列表
+    global users
+    users = read_user_info(user_file_path)
+    user = users[user_id].split(',')
+
+    print('>>> 尊敬的%s，您的账户余额为：%.2f元，电话号码为：%s。' % (user[0], float(user[3]), user[2]))
 
     return
 
 
 # 业务类函数：取款
-def withdraw(user_id):
+def withdraw(user_id: int) ->None:
     print('>>> 正在进行取款操作……')
     money = input(">>> 请输入您的取款金额：")
+    # 从用户文件读取所有用户信息保存到列表
+    global users
+    users = read_user_info(user_file_path)
+
     # 先判断输入内容是否是有效的数字
     if check_number(money):
         # 取款前先要判断账户余额
-        if users[user_id]['balance'] >= float(money):
+        if float(users[user_id].split(',')[3]) >= float(money):
             save_transaction(user_id, '取款', float(money))
             check_balance(user_id, -float(money))
         else:
@@ -134,9 +150,10 @@ def withdraw(user_id):
 
 
 # 业务类函数：存款
-def deposit(user_id: int):
+def deposit(user_id: int) -> None:
     print('>>> 正在进行存款操作……')
     money = input('>>> 请输入您的存款金额：')
+
     # 先判断输入内容是否是有效的数字
     if check_number(money):
         save_transaction(user_id, '存款', float(money))
@@ -149,7 +166,7 @@ def deposit(user_id: int):
 
 
 # 业务类函数：转账
-def transfer(user_id: int):
+def transfer(user_id: int) -> None:
     print('>>> 正在进行转账操作……')
     payee = input('>>> 请输入对方账户名称：')
     money = input('>>> 请输入您的转账金额：')
@@ -162,14 +179,18 @@ def transfer(user_id: int):
     else:
         # 如果输入的转账金额格式不正确，则提示用户重新输入
         if check_number(money):
+            # 从用户文件读取所有用户信息保存到列表
+            global users
+            users = read_user_info(user_file_path)
+
             # 如果转账金额大于用户的账户余额，则提示用户账户余额不足
-            if float(money) > float(users[user_id]['balance']):
+            if float(money) > float(users[user_id].split(',')[3]):
                 print('>>> 您的账户余额不足，请确认后重新输入！')
                 transfer(user_id)
             else:
-                save_transaction(user_id, '取款', float(money))
+                save_transaction(user_id, '转账支出', float(money))
                 # save_transaction(payee_id, '存款', float(money))
-                check_balance(user_id, float(money))
+                check_balance(user_id, -float(money))
                 # check_balance(payee_id, float(money))
         else:
             print('>>> 您输入的金额有误，请确认后重新输入！')
@@ -180,10 +201,12 @@ def transfer(user_id: int):
 # 业务类函数：审计、流水、清单
 def audit(user_id: int) -> None:
     print('>>> 正在查询历史记录……')
-    current_user = users[user_id]
-
-    histories = current_user['history'].split('##')
-    print('>>> 尊敬的%s，您的账户历史交易如下：' % current_user['name'])
+    # 从用户文件读取所有用户信息保存到列表
+    global users
+    users = read_user_info(user_file_path)
+    current_user = users[user_id].split(',')
+    histories = current_user[4].split('##')
+    print('>>> 尊敬的%s，您的账户历史交易如下：' % current_user[0])
     for history in histories:
         print('>>>\t--- ', history)
 
@@ -192,36 +215,42 @@ def audit(user_id: int) -> None:
 
 # 功能性函数：保存历史交易记录
 def save_transaction(user_id: int, tran_type: str, money: float) -> None:
-    """
+    # 从用户文件读取所有用户信息保存到列表
+    global users
+    users = read_user_info(user_file_path)
+    current_user = users[user_id].split(',')
 
-    :param user_id:
-    :param tran_type:
-    :param money:
-    :return:
-    """
-    current_user = users[user_id]
-    before_transaction = current_user['history']
-    this_transaction = current_user['name'] + ' ' + time.strftime('%Y-%m-%d %H:%M:%S') + \
+    before_transaction = current_user[4]
+    # 构建一条当前交易信息
+    this_transaction = current_user[0] + ' ' + time.strftime('%Y-%m-%d %H:%M:%S') + \
         ' ' + tran_type + ' ' + str(money)
-    history = before_transaction + '##' + this_transaction
-    current_user['history'] = history
-    # users[user_id] = current_user
-    print('>>> 尊敬的%s，您有一条新的交易记录：\n\t--- %s' % (current_user['name'], this_transaction))
+    # 将当前交易信息附加到历史交易信息中，并以##隔开
+    transaction_history = '##'.join([before_transaction, this_transaction])
+    print('>>> 尊敬的%s，您有一条新的交易记录：\n\t--- %s' % (current_user[0], this_transaction))
+    # 将更新的用户交易记录写回用户文件
+    update_user_info(user_id, history=transaction_history)
 
     return
 
 
 # 功能性函数：检查账户余额
 def check_balance(user_id: int, money: float):
-    current_user = users[user_id]
-    current_user['balance'] = current_user['balance'] + money
-    # users[current_user_id] = current_user
+    # 从用户文件读取所有用户信息保存到列表
+    global users
+    users = read_user_info(user_file_path)
+    current_user = users[user_id].split(',')
+
+    # 更新账户余额信息
+    current_user[3] = str(float(current_user[3]) + money)
+    update_user_info(user_id, balance=current_user[3])
+
+    # 返回检查结果
     if money < 0:
         print('>>> 尊敬的%s，您已成功取款：%.2f元，当前账户余额为：%.2f元。' %
-              (current_user['name'], money, current_user['balance']))
+              (current_user[0], -money, float(current_user[3])))
     else:
         print('>>> 尊敬的%s，您已成功存款：%.2f元，当前账户余额为：%.2f元。' %
-              (current_user['name'], money, current_user['balance']))
+              (current_user[0], money, float(current_user[3])))
 
     return
 
@@ -243,10 +272,13 @@ def check_user(name: str) -> int:
     #     if user['name'] == name:
     #         return users.index(user)
 
-    # 法三：行读取用户文件中的用户信息存放至列表中，找到name在列表中的index
+    # 读取用户文件信息并存放至列表中，找到name在列表中的index
+    global users
     users = read_user_info(user_file_path)
+
+    # 循环从1开始，index=0的位置存放的是key信息，value信息从index=1的位置开始
     for i in range(1, len(users)):
-        if users[i].split(',')[0] == name:
+        if users[i].split(',')[0] == name:  # 以','为分隔符将一行字符串信息拆分成子字符串并保存至列表
             return i
 
     return -1
@@ -260,10 +292,28 @@ def check_number(input_str: str) -> bool:
     :return:
     """
     is_valid = False  # 标识是否是有效的字符串
-    # 综合考虑实际的业务需求，存钱的金额一般为正整数
+    dot_num = 0
+    # 只考虑整数情况
+    # for char in input_str:
+    #     if char in ('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'):
+    #         if char is '0' and input_str.index(char) == 0:
+    #             is_valid = False
+    #             break
+    #         else:
+    #             is_valid = True
+    #     else:
+    #         is_valid = False
+    #         break
+
+    # 考虑小数情况
     for char in input_str:
-        if char in ('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'):
-            if char is '0' and input_str.index(char) == 0:
+        if char in ('.', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'):
+            if char is '.':
+                dot_num += 1
+                if dot_num >= 2:
+                    is_valid = False
+                    break
+            elif char is '0' and input_str.index(char) == 0:
                 is_valid = False
                 break
             else:
@@ -275,19 +325,58 @@ def check_number(input_str: str) -> bool:
     return is_valid
 
 
-# 读取用户信息文件，并返回为一个列表对象
+# 功能函数：读取用户信息文件，并返回为一个列表对象
 def read_user_info(path: str) -> list:
-    user_file = open(path)          # 打开用户文件
+    user_file = open(path, encoding='utf-8')    # 使用encoding=utf-8打开用户文件，避免读写中文时出现乱码
+    global users
     users = user_file.readlines()   # 从文件读取用户信息并保存至列表中
+    user_file.close()
 
     return users
 
 
-# 往用户文件users.txt中追加一条用户信息
-def write_user_info(user_info: str) -> None:
-    user_file = open(user_file_path, mode='a+')
+# 功能函数：将用户信息写入用户文件
+def write_user_info(user_info: str, path: str, way: str = 'a+') -> None:
+    # 'r'       open for reading (default)
+    # 'w'       open for writing, truncating the file first
+    # 'x'       create a new file and open it for writing
+    # 'a'       open for writing, appending to the end of the file if it exists
+    # 'b'       binary mode
+    # 't'       text mode (default)
+    # '+'       open a disk file for updating (reading and writing)
+    # 'U'       universal newline mode (deprecated)
+
+    # 使用encoding=utf-8打开用户文件，避免读写中文时出现乱码
+    user_file = open(path, mode=way, encoding='utf-8')
     user_file.write(user_info)
+    # user_file.writelines(user_info)
     user_file.close()
+
+    return
+
+
+# 功能函数：更新用户信息
+def update_user_info(user_id, **kwargs):
+    # 读取用户文件信息并存放至列表中，找到name在列表中的index
+    global users
+    users = read_user_info(user_file_path)
+    user = users[user_id].split(',')
+    user_item = {'name': user[0],
+                 'password': user[1],
+                 'tel': user[2],
+                 'balance': user[3],
+                 'history': user[4]}
+    # 更新指定的用户信息
+    for k, v in kwargs.items():
+        user_item[k] = v
+    # 将更新的用户信息转化成用指定分隔符分隔的字符串并写回文件
+    sep = ','
+    updated_info = user_item['name'] + sep + user_item['password'] + sep \
+        + user_item['tel'] + sep + user_item['balance'] + sep + user_item['history']
+    users[user_id] = updated_info
+    write_user_info(''.join(users), user_file_path, 'w')
+
+    return
 
 
 # 流程控制函数：WoniuATM入口程序
@@ -365,6 +454,9 @@ def home() -> None:
         enter()
     elif option == "7":
         exit('>>> 感谢使用WoniuATM，欢迎下次光临！')
+    else:
+        print('>>> 您的输入有误，请确认后重新输入！')
+        home()
 
     return
 

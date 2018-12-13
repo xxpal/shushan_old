@@ -105,7 +105,7 @@ def query(user_id: int) -> None:
 
 
 # 业务类函数：取款
-def withdraw(user_id):
+def withdraw(user_id: int) -> None:
     print('>>> 正在进行取款操作……')
     money = input(">>> 请输入您的取款金额：")
     # 先判断输入内容是否是有效的数字
@@ -124,7 +124,7 @@ def withdraw(user_id):
 
 
 # 业务类函数：存款
-def deposit(user_id: int):
+def deposit(user_id: int) -> None:
     print('>>> 正在进行存款操作……')
     money = input('>>> 请输入您的存款金额：')
     # 先判断输入内容是否是有效的数字
@@ -139,7 +139,7 @@ def deposit(user_id: int):
 
 
 # 业务类函数：转账
-def transfer(user_id: int):
+def transfer(user_id: int) -> None:
     print('>>> 正在进行转账操作……')
     payee = input('>>> 请输入对方账户名称：')
     money = input('>>> 请输入您的转账金额：')
@@ -158,7 +158,7 @@ def transfer(user_id: int):
                 transfer(user_id)
             else:
                 save_transaction(user_id, '取款', float(money))
-                # save_transaction(payee_id, '存款', float(money))
+                save_transaction(payee_id, '存款', float(money))
                 check_balance(user_id, float(money))
                 # check_balance(payee_id, float(money))
         else:
