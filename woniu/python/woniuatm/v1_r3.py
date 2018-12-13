@@ -244,10 +244,28 @@ def check_number(input_str: str) -> bool:
     :return:
     """
     is_valid = False  # 标识是否是有效的字符串
-    # 综合考虑实际的业务需求，存钱的金额一般为正整数
+    dot_num = 0
+    # 只考虑整数情况
+    # for char in input_str:
+    #     if char in ('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'):
+    #         if char is '0' and input_str.index(char) == 0:
+    #             is_valid = False
+    #             break
+    #         else:
+    #             is_valid = True
+    #     else:
+    #         is_valid = False
+    #         break
+
+    # 考虑小数情况
     for char in input_str:
-        if char in ('0', '1', '2', '3', '4', '5', '6', '7', '8', '9'):
-            if char is '0' and input_str.index(char) == 0:
+        if char in ('.', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'):
+            if char is '.':
+                dot_num += 1
+                if dot_num >= 2:
+                    is_valid = False
+                    break
+            elif char is '0' and input_str.index(char) == 0:
                 is_valid = False
                 break
             else:
