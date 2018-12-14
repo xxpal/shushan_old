@@ -15,6 +15,19 @@
 # 扩展要求：
 # 把两个列表减少为一个列表，完成同样的功能。列表中的列表。           ==> Done
 # 如果需要存第三个值，如：电话号码，请问怎么做比较好？              ==> Done
+#
+# 功能列表：
+# 一、业务类函数：
+#   01. 注册，register() -> bool
+#   02. 登录，login() -> bool
+#   03. 查询，query(user_id: int) -> None
+#   04. 取款，withdraw(user_id: int) ->None
+#   05. 存款，deposit(user_id: int) -> None
+#   06. 转账，transfer(user_id: int) -> None
+#   07. 审计，audit(user_id: int) -> None
+# 二、功能性函数：
+#   01. 保存历史交易记录：save_transaction(user_id: int, tran_type: str, money: float) -> None:
+#   08. 检查账户余额，check_balance(user_id: int, money: float) -> None
 # ===============================================================================
 import os
 import time
@@ -218,7 +231,7 @@ def save_transaction(user_id: int, tran_type: str, money: float) -> None:
     # 从用户文件读取所有用户信息保存到列表
     global users
     users = read_user_info(user_file_path)
-    current_user = users[user_id].split(',')
+    current_user = users[user_id].strip().split(',')
 
     before_transaction = current_user[4]
     # 构建一条当前交易信息
@@ -234,7 +247,7 @@ def save_transaction(user_id: int, tran_type: str, money: float) -> None:
 
 
 # 功能性函数：检查账户余额
-def check_balance(user_id: int, money: float):
+def check_balance(user_id: int, money: float) -> None:
     # 从用户文件读取所有用户信息保存到列表
     global users
     users = read_user_info(user_file_path)

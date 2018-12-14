@@ -16,7 +16,7 @@
 # 把两个列表减少为一个列表，完成同样的功能。列表中的列表。           ==> Done
 # 如果需要存第三个值，如：电话号码，请问怎么做比较好？              ==> Todo
 # ===============================================================================
-
+import random
 
 # 定义单独的列表，分别保存不同的用户属性
 # names = ['steve', 'bill', 'jack']
@@ -40,11 +40,48 @@ current_user_id = -1
 
 # 业务类函数：注册
 def register() -> bool:
-    pass
+    name = input('>>> 请输入您期望注册的用户名：')
+    index = check_user(name)
+    status = False
+
+    # 判断用户名是否存在
+    if index >= 0:
+        print('>>> 对不起！该用户名已被占用，请重新注册！')
+    else:
+        print('>>> 恭喜，该用户名可用！')
+        password = input('>>> 请输入您的密码：')
+        tel = input('请输入您的电话号码：')
+        balance = random.randint(1000, 9999)
+        user = {}
+        user.update({'name': name,
+                     'password': password,
+                     'tel': tel,
+                     'balance': balance,
+                     'history': ''})
+        users.append(user)
+        status = True
+
+    return status
 
 
 # 业务类函数：登录
 def login() -> bool:
+    name = input('请输入您的用户名：')
+    index = check_user(name)
+    status = False
+
+    if index >= 0:
+        password = input('请输入您的密码：')
+        if users[index]['password'] == password:
+            print('登录成功！')
+            global current_user_id
+            current_user_id = index
+            status = True
+        else:
+            print('密码错误，请重新登录！')
+    else:
+        print('该用户不存在，请先注册！')
+
     pass
 
 
@@ -75,7 +112,19 @@ def audit(user_id: int) -> None:
 
 # 功能性函数：检查用户名是否存在
 def check_user(name: str) -> int:
-    pass
+
+
+    # # 法1：
+    # for i in range(len(users)):
+    #     if users[i]['name'] == name:
+    #         return i
+
+    # 法2：
+    for user in users:
+        if user['name'] == name:
+            return users.index(user)
+
+    return -1
 
 
 # 功能性函数：检查输入的字符串是否能被转化成一个有效的数字
