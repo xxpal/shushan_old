@@ -2,6 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7d8d5d3-e721-4fb4-947b-22ea21cbeeac" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/woniu/python/woniutalk/client_v1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/woniu/python/woniutalk/client_v2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/woniu/python/woniutalk/server_v1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/woniu/python/woniutalk/server_v2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/woniu/python/woniutalk/server_v3.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,89 +18,64 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/Woniu/Woniuspace/WNCD/WNCD_Test_C041/python/woniuatm_1/five.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
-              <folding>
-                <element signature="e#0#23#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/Woniu/Woniuspace/WNCD/WNCD_Test_C041/python/woniuatm_1/four.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1288">
-              <caret line="56" column="19" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/Woniu/Woniuspace/WNCD/WNCD_Test_C041/python/woniuatm_1/three.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="637">
-              <caret line="197" selection-start-line="197" selection-end-line="197" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/woniu/python/data/users.txt">
+        <entry file="file://$PROJECT_DIR$/woniu/python/woniutalk/client_v2.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="138">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/woniu/python/woniuatm/v1_r4.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
+              <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
               <folding>
-                <element signature="e#615#636#0" />
-                <element signature="e#1658#2618#0" />
-                <element signature="e#2657#3378#0" />
-                <element signature="e#3429#3671#0" />
-                <element signature="e#3724#4259#0" />
-                <element signature="e#4312#4608#0" />
-                <element signature="e#4662#5615#0" />
-                <element signature="e#5672#6000#0" />
-                <element signature="e#6098#6703#0" />
-                <element signature="e#7054#7603#0" />
-                <element signature="e#7380#8049#0" />
-                <element signature="e#8129#9136#0" />
-                <element signature="e#9209#9401#0" />
-                <element signature="e#9500#10120#0" />
-                <element signature="e#10182#10877#0" />
-                <element signature="e#10927#11852#0" />
-                <element signature="e#11904#12820#0" />
+                <element signature="e#0#13#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/woniu/python/woniuatm/v1_r2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="637">
-              <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/woniu/python/woniuatm/v1_r3.py">
+        <entry file="file://$PROJECT_DIR$/woniu/python/woniutalk/server_v3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="22" column="35" lean-forward="true" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+            <state relative-caret-position="597">
+              <caret line="42" column="45" lean-forward="true" selection-start-line="42" selection-start-column="45" selection-end-line="42" selection-end-column="45" />
               <folding>
-                <element signature="e#577#590#0" expanded="true" />
+                <element signature="e#0#13#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/woniu/python/woniutalk/server_v2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="14" column="8" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="17" selection-end-column="37" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://D:/Woniu/Woniuspace/WNCD/WNCD_Test_C041/python/woniutalk_3/talk_client.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://D:/Woniu/Woniuspace/WNCD/WNCD_Test_C041/python/woniutalk_3/talk_server.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1679">
+              <caret line="73" lean-forward="true" selection-end-line="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://D:/Studio/Python/v3.7.1_x64/Lib/threading.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="103">
+              <caret line="757" column="8" selection-start-line="757" selection-start-column="8" selection-end-line="757" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -132,6 +112,11 @@
         <option value="$PROJECT_DIR$/woniu/python/data/users.txt" />
         <option value="$PROJECT_DIR$/demo/woniuatm_demo.py" />
         <option value="$PROJECT_DIR$/woniu/python/woniuatm/v1_r4.py" />
+        <option value="$PROJECT_DIR$/woniu/python/woniutalk/server_v1.py" />
+        <option value="$PROJECT_DIR$/woniu/python/woniutalk/client_v1.py" />
+        <option value="$PROJECT_DIR$/woniu/python/woniutalk/client_v2.py" />
+        <option value="$PROJECT_DIR$/woniu/python/woniutalk/server_v2.py" />
+        <option value="$PROJECT_DIR$/woniu/python/woniutalk/server_v3.py" />
       </list>
     </option>
   </component>
@@ -142,16 +127,92 @@
     <option name="height" value="788" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
       <pane id="Scope">
+        <subPane subId="Scope 'Default Changelist'; set:Default Changelist; class com.intellij.packageDependencies.ChangeListScope">
+          <expand>
+            <path>
+              <item name="Shushan" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="Shushan" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name=".idea" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Scope 'Changed Files'; set:Changed Files; ALL; class com.intellij.packageDependencies.ChangeListScope">
+          <expand>
+            <path>
+              <item name="Shushan" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="Shushan" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name=".idea" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
             <path>
               <item name="Shushan" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="Shushan" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="woniu" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Shushan" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="woniu" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="python" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Shushan" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="woniu" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="python" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="woniutalk" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Shushan" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="D:\Woniu\Woniuspace" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="Shushan" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="D:\Woniu\Woniuspace" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="WNCD" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Shushan" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="D:\Woniu\Woniuspace" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="WNCD" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="WNCD_Test_C041" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Shushan" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="D:\Woniu\Woniuspace" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="WNCD" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="WNCD_Test_C041" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="python" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Shushan" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="D:\Woniu\Woniuspace" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="WNCD" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="WNCD_Test_C041" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="python" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="woniutalk_3" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -253,8 +314,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.woniuatm_demo">
-    <configuration name="practices_training" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.client_v2">
+    <configuration name="client_v1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Shushan" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -262,11 +323,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/woniu/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/woniu/python/woniutalk" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/woniu/python/practices_training.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/woniu/python/woniutalk/client_v1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -275,7 +336,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="v1_r3" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="client_v2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Shushan" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -283,11 +344,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/woniu/python/woniuatm" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/woniu/python/woniutalk" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/woniu/python/woniuatm/v1_r3.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/woniu/python/woniutalk/client_v2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -296,7 +357,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="v1_r4" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="server_v1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Shushan" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -304,11 +365,32 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/woniu/python/woniuatm" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/woniu/python/woniutalk" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/woniu/python/woniuatm/v1_r4.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/woniu/python/woniutalk/server_v1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="server_v2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Shushan" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/woniu/python/woniutalk" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/woniu/python/woniutalk/server_v2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -340,10 +422,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.client_v2" />
+        <item itemvalue="Python.server_v2" />
+        <item itemvalue="Python.client_v1" />
+        <item itemvalue="Python.server_v1" />
         <item itemvalue="Python.woniuatm_demo" />
-        <item itemvalue="Python.v1_r4" />
-        <item itemvalue="Python.v1_r3" />
-        <item itemvalue="Python.practices_training" />
       </list>
     </recent_temporary>
   </component>
@@ -442,7 +525,14 @@
       <option name="project" value="LOCAL" />
       <updated>1544796316062</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="update">
+      <created>1544886075819</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1544886075819</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView">
@@ -456,21 +546,22 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17068528" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17068528" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49873096" weight="0.3292683" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" sideWeight="0.49809644" visible="true" weight="0.3292683" />
       <window_info anchor="bottom" id="Debug" order="2" weight="0.39972898" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.49873096" weight="0.17615177" />
+      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.57106596" weight="0.2899729" />
       <window_info anchor="bottom" id="Terminal" order="6" weight="0.3292683" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.3292683" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50126904" side_tool="true" visible="true" weight="0.24119242" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50190353" side_tool="true" visible="true" weight="0.3292683" />
       <window_info anchor="bottom" id="TODO" order="9" weight="0.3292683" />
-      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49936548" weight="0.32655826" />
+      <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49873096" weight="0.32655826" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -686,10 +777,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/woniu/python/data/users.txt">
+    <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="184">
+          <caret line="8" column="10" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/Shushan.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/vcs.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3528" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://D:/Woniu/Woniuspace/WNCD/WNCD_Test_C041/python/woniutalk_1/talk_client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="22" column="26" lean-forward="true" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/2and3/socket.pyi">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="544" column="25" selection-start-line="544" selection-start-column="25" selection-end-line="544" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/woniu/python/woniutalk/server_v1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" column="32" lean-forward="true" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/woniu/python/woniutalk/client_v1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="13" column="19" lean-forward="true" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/woniu/python/woniuatm/v1_r3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="22" column="35" lean-forward="true" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+          <folding>
+            <element signature="e#577#590#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -719,12 +862,98 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/woniu/python/woniuatm/v1_r3.py">
+    <entry file="file://$PROJECT_DIR$/woniu/python/data/users.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="22" column="35" lean-forward="true" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+        <state relative-caret-position="138">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Studio/Python/v3.7.1_x64/Lib/threading.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="757" column="8" selection-start-line="757" selection-start-column="8" selection-end-line="757" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Woniu/Woniuspace/WNCD/WNCD_Test_C041/python/woniutalk_2/talk_server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="46" column="31" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Woniu/Woniuspace/WNCD/WNCD_Test_C041/python/woniutalk_1/talk_server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Woniu/Woniuspace/WNCD/WNCD_Test_C041/python/woniutalk_2/talk_client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Woniu/Woniuspace/WNCD/WNCD_Test_C041/python/woniutalk_3/talk_server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1679">
+          <caret line="73" lean-forward="true" selection-end-line="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Woniu/Woniuspace/WNCD/WNCD_Test_C041/python/woniutalk_3/talk_client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.3/system/python_stubs/449868220/_socket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="737" column="12" lean-forward="true" selection-start-line="737" selection-start-column="12" selection-end-line="737" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Studio/Python/v3.7.1_x64/Lib/socket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="138" column="53" selection-start-line="138" selection-start-column="53" selection-end-line="138" selection-end-column="53" />
           <folding>
-            <element signature="e#577#590#0" expanded="true" />
+            <element signature="e#1943#1957#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/woniu/python/woniutalk/client_v2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/woniu/python/woniutalk/server_v2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="14" column="8" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="17" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/woniu/python/woniutalk/server_v3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="597">
+          <caret line="42" column="45" lean-forward="true" selection-start-line="42" selection-start-column="45" selection-end-line="42" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
